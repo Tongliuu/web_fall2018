@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<br/><br/><br/>
+<head>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <title> Assignment #1 </title>
+
+    <style type="text/css">
+        a
+        {
+            text-align:left;
+            font-weight:bold;
+            color:#333;
+            text-decoration:none;
+        }
+        body
+        {
+            text-align:left;
+            width:80vw;
+            margin:0 auto;
+            background-color:white;
+        }
+        #right
+        {
+
+        }
+        #header
+        {
+
+        }
+        contain
+        {
+            text-align: left;
+        }
+
+        #bottom
+        {
+            text-align: center;
+        }
+        .date
+        {
+            font-size:1vw;
+            color:gray;
+            margin:0px 20px;
+            text-align:left;
+        }
+
+        .responsive
+        {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2,h1{
+            text-align:left;
+        }
+        ul.breadcrumb {
+            padding: 10px 16px;
+            list-style: none;
+            #background-color: #eee;
+        }
+        ul.breadcrumb li {
+            display: inline;
+            font-size: 18px;
+        }
+        ul.breadcrumb li+li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+        ul.breadcrumb li a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        ul.breadcrumb li a:hover {
+            color: #01447e;
+            text-decoration: underline;
+        }
+
+
+
+    </style>
+</head>
+
+
+<body>
+<!-- header	-->
+<div id="header" class="container">
+    <h1>TODAY'S PITTSBURGH</h1>
+    <img src="news.jpg" class="responsive">
+    <br />
+    <hr  align="left" width="100%"/>
+    <ul class="breadcrumb">
+        <li><a href="homepage.html">Home Page</a></li>
+        <li>Current News</li>
+    </ul>
+
+    <hr />
+</div>
+
+<!-- side -->
+<div id="right" class="container">
+    <div style="width:25%;position:absolute;right:50px;text-align:left;">
+        <hr style="width:0px;height:800px;position:absolute;right:320px;" />
+        <p id="top" style="color:gray;font-size:40px;">HOT SPOTS</p>
+        <hr/>
+        <ul>
+            <li><a href="news4.html">Class Action Lawsuit Filed Against 8 Catholic Dioceses In Pennsylvania</a></li><br/><br/>
+            <li><a href="news1.html">PETA Calls For End Of Animal Acts In Shrine Circus After 7 People Injured By Spooked Camel</a></li><br/><br/>
+            <li><a href="news3.html">Military Death Benefits Will No Longer Be Stopped By Government Shutdowns</a></li><br/><br/>
+        </ul>
+    </div>
+</div>
+
+<!-- center	-->
+<div id="contain" class="container">
+    <div style="width:70%">
+    <div id="head1">
+        <h2>Class Action Lawsuit Filed Against 8 Catholic Dioceses In Pennsylvania</h2>
+        <p class="date">September 16, 2018 at 1:46 pm</p>
+        <p><mark>PITTSBURGH (KDKA)</mark> – A class action lawsuit has been filed against eight Roman Catholic dioceses in Pennsylvania, including the Dioceses of Pittsburgh and Greensburg.</p>
+
+        <p>The survivors of child sex abuse by priests and their families are asking for accountability. Their lawsuit goes back 70 years. They want to know who the predators are and if they are around children.</p>
+
+        <p>catholic church Class Action Lawsuit Filed Against 8 Catholic Dioceses In Pennsylvania</p>
+        <img src="catholic-church.jpg" align="center" class="responsive">
+        <p align="center">(Photo Credit: KDKA)</p>
+
+        <p>“Their words now are like the words were 20 years ago — empty. No more. They need to be held accountable. They need to be brought into the open,” Ryan O’Connor said.</p>
+
+        <p>O’Connor is the lead plaintiff in a case filed today in Common Pleas Court for Allegheny County.</p>
+
+        <p>“The relief in the case that we are seeking is not a pile of money. That’s not what Mr. O’Connor wants. He wants the release of this information. He wants the names. He wants them to name names. We know they haven’t done that and we also want the files. We want to know what went on,” O’Connor’s attorney, Ben Sweet said.</p>
+
+        <p>O’connor says he was abused when he was 9 or 10 by the priest at St. Joseph’s in Verona. Now, at age 46, he has two children in Catholic school and wants to know who is around them.</p>
+
+        <p>“These men are master liars and manipulators. They are predators. They lied to our parents. They manipulated our parents. They got into our lives. They are doing the same thing. It is the same playbook. Don’t buy into it,” he said.</p>
+
+        <p>The suit asks for all the names to be released from the Pennsylvania grand jury report, and they want internal church documents, too.</p>
+
+        <p>“We are particularly interested in [documents] which are the files that are at issue when a priest is being defrocked and taken out of the ministry. Those are documents that generally contain very damaging information, and we think it should be released for the public good,” Sweet said.</p>
+
+        <p>O’Connor remains active in the church and hopes church leaders will to do the right thing.</p>
+
+        <p>“This is not about money. It has never been about money for me. It’s about transparency and it’s about truth. That’s all we want,” he said.</p>
+
+        <button onclick='document.getElementById("likethis").innerText="Thanks for your supporting"'>Like this article</button>
+        <p id="likethis"></p>
+    </div>
+    </div>
+</div >
+
+<hr />
+
+
+<!-- bottom -->
+<div id="bottom" class="container">
+    <div class="copyRight" id="bo">
+        <p id="cur_bottom">jis103@pitt.edu \ Contents belong to https://pittsburgh.cbslocal.com/</p>
+    </div>
+    <script>
+        var d=new Date();
+        var para=document.createElement("p");
+        var node=document.createTextNode(d);
+        para.appendChild(node);
+
+        var e=document.getElementById("bo");
+        var cur=document.getElementById("cur_bottom");
+        e.insertBefore(para,cur);
+
+    </script>
+</div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<br/><br/><br/>
+<head>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <title> Assignment #1 </title>
+
+    <style type="text/css">
+        a
+        {
+            text-align:left;
+            font-weight:bold;
+            color:#333;
+            text-decoration:none;
+        }
+        body
+        {
+            text-align:left;
+            width:80vw;
+            margin:0 auto;
+            background-color:white;
+        }
+        #right
+        {
+
+        }
+        #header
+        {
+
+        }
+        contain
+        {
+            text-align: left;
+        }
+
+        #bottom
+        {
+            text-align: center;
+        }
+        .date
+        {
+            font-size:1vw;
+            color:gray;
+            margin:0px 20px;
+            text-align:left;
+        }
+
+        .responsive
+        {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2,h1{
+            text-align:left;
+        }
+
+        ul.breadcrumb {
+            padding: 10px 16px;
+            list-style: none;
+            #background-color: #eee;
+        }
+        ul.breadcrumb li {
+            display: inline;
+            font-size: 18px;
+        }
+        ul.breadcrumb li+li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+        ul.breadcrumb li a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        ul.breadcrumb li a:hover {
+            color: #01447e;
+            text-decoration: underline;
+        }
+
+
+
+    </style>
+</head>
+
+
+<body>
+<!--			 header				-->
+<div id="header" class="container">
+    <h1>TODAY'S PITTSBURGH</h1>
+    <img src="news.jpg" class="responsive">
+    <br />
+    <hr  align="left" width="100%"/>
+    <ul class="breadcrumb">
+        <li><a href="homepage.html">Home Page</a></li>
+        <li>Current News</li>
+    </ul>
+    <hr />
+</div>
+
+<!-- side -->
+<div id="right" class="container">
+    <div style="width:25%;position:absolute;right:50px;text-align:left;">
+        <hr style="width:0px;height:800px;position:absolute;right:320px;" />
+        <p id="top" style="color:gray;font-size:40px;">HOT SPOTS</p>
+        <hr/>
+        <ul>
+            <li><a href="news4.html">Class Action Lawsuit Filed Against 8 Catholic Dioceses In Pennsylvania</a></li><br/><br/>
+            <li><a href="news1.html">PETA Calls For End Of Animal Acts In Shrine Circus After 7 People Injured By Spooked Camel</a></li><br/><br/>
+            <li><a href="news3.html">Military Death Benefits Will No Longer Be Stopped By Government Shutdowns</a></li><br/><br/>
+        </ul>
+    </div>
+</div>
+<!--			center				-->
+<div id="contain" class="container">
+    <div style="width:70%">
+    <div id="head1">
+        <h2>Military Death Benefits Will No Longer Be Stopped By Government Shutdowns</h2>
+        <p class="date">September 17, 2018 at 1:46 pm</p>
+        <p><mark>WASHINGTON, D.C. (CBS Local)</mark>- Military death gratuities are no longer going to be stopped in the case of a government shutdown thanks to a new provision that will be part of the defense appropriations deal set to be announced this week.</p>
+
+        <p>According to the Military Times, the bill includes an exemption for families of troops killed on-duty in order to allow them to receive the death benefits payouts even if other military benefits are placed on hold due to a shutdown.</p>
+
+        <p>The issue of military death gratuities being stopped in the case of a shutdown has reared its head twice in the past several years during the partial shutdowns that the nation has endured. In each of those cases, widows and families of troops were forced to wait for payouts to be administered because the federal rules prohibited them.</p>
+
+        <p>Rep. Gerry Connolly (D-Va.), sponsored the legislation to make the change and he spoke to the Times about the new provision.</p>
+
+        <p>“This really is the very least we can do for families who have made the ultimate sacrifice,” said Connolly. “Never again will a government shutdown cause a grieving military family to be denied a death gratuity payment during their time of mourning.”</p>
+
+        <p>According to the Times, the spending bill that is being proposed includes $674 billion in defense appropriations along with full 2019 budgets for the Departments of Health and Human Services, Labor and Education.</p>
+
+        <p>The bill must be approved by both chambers of Congress and signed by the president before Oct. 1 in order to avoid another partial shutdown.</p>
+
+        <button onclick='document.getElementById("likethis").innerText="Thanks for your supporting"'>Like this article</button>
+        <p id="likethis"></p>
+    </div>
+    </div>
+</div >
+
+<hr />
+
+
+<!--			bottom			 -->
+<div id="bottom" class="container">
+    <div class="copyRight" id="bo">
+        <p id="cur_bottom">jis103@pitt.edu \ Contents belong to https://pittsburgh.cbslocal.com/</p>
+    </div>
+    <script>
+        var d=new Date();
+        var para=document.createElement("p");
+        var node=document.createTextNode(d);
+        para.appendChild(node);
+
+        var e=document.getElementById("bo");
+        var cur=document.getElementById("cur_bottom");
+        e.insertBefore(para,cur);
+
+    </script>
+</div>
+
+
+</body>
+
+
+</html>
