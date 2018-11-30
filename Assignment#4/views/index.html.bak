@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ToDO</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <script >
+  app = angular.module('app', []);
+
+ app.controller('getController', ($scope, $http, $location) =>{
+	$scope.getAllUsers = function(){
+		var url = "/todos";
+		
+		$http.get(url).then((response) => {
+			$scope.todos = response.data;
+		}, (response) => {
+			$scope.getErrMsg = "Error Status: " +  response.statusText;
+		});
+	}
+	
+	$scope.findItem = function () {
+		var url = "/todos";
+		var data={
+ 			id:$scope.itemId
+ 		};
+ 				
+		if ($scope.itemId == null || $scope.itemId == "") {
+			$scope.errMsg = "Please Enter Id";
+			return;
+		}
+		$http.get(url + "/" + $scope.itemId).then(
+			response => {
+				$scope.errMsg = "";
+				$scope.todo = response.data;
+			},
+			response => {
+				$scope.todo = "";
+				$scope.errMsg = "Error Status: " + response.statusText;
+			}
+		);
+ };
+});
+
+ app.controller('postController', ($scope, $http, $location) => {
+	$scope.submitAddForm = function(){
+		var url = "/todos";
+		
+		var config = {
+                headers : {
+                    'Accept': 'application/json'
+                }
+        }
+		var data = {
+            name: $scope.itemname,
+            note: $scope.note
+        };
+		
+		
+		$http.post(url, JSON.stringify(data), config).then((response) => {
+			$scope.todos= response.data;
+		}, (response) => {
+			$scope.postErrMsg = "Error Status: " +  response.statusText;
+		});
+		
+		// reset data fields
+		$scope.itemname = "";
+		$scope.note = "";
+	}	
+});
+ 
+ app.controller('updateController',($scope, $http, $location)=>{
+ 	$scope.updateItem=function(){
+ 		var url="/todos";
+ 		var config={
+ 				headers:{
+ 					'Accept':'application/json'
+ 				}
+ 		};
+ 		var data={
+ 			name: $scope.itemname,
+ 			note: $scope.note
+ 		};
+ 		
+ 		$http.put(url+"/"+$scope.itemId,JSON.stringify(data),config).then(
+ 		(response)=>{
+ 			$scope.todos=response.data;
+ 		},
+ 		(response)=>{
+ 			$scope.postErrMsg = "Error Status: " +  response.statusText;
+ 		});
+ 		
+ 		// reset data fields
+		$scope.itemname = "";
+		$scope.note = "";
+		$scope.itemId="";
+ 	}
+ });
+ 
+ app.controller('deleteController', ($scope, $http, $location) =>{
+	$scope.deleteItem = function(){
+		var url = "/todos";
+ 		var config={
+ 				headers:{
+ 					'Accept':'application/json'
+ 				}
+ 		}
+ 		var data={
+ 			id:$scope.itemId
+ 		};
+		
+		$http.delete(url+"/"+$scope.itemId).then(
+		(response) => {
+			$scope.todos = response.data;
+		}, 
+		(response) => {
+			$scope.getErrMsg = "Error Status: " +  response.statusText;
+		});
+		
+		$scope.itemId="";
+	}
+ });
+ 
+ </script>
+</head>
+ 
+<body > 
+<div class="container" ng-app="app"> 
+<div class="col-sm-4">
+	<h3>TO DO</h3>
+	
+	<br>
+	<div ng-controller="getController">
+		<button ng-click="getAllUsers()" type="button" class="btn btn-default">get all my items</button>
+		<ul>
+			<li ng-repeat="todo in todos">{{todo.name + " \t: " + todo.note + "\t(id: " + todo._id + ")"}}</li>
+		</ul>
+		<div>{{getErrMsg}}</div>
+
+		<br>
+	</div>
+	<br>
+	
+	<h4 class="text-info">New Record</h4>
+	<div ng-controller="postController">
+		<div>		
+			<form name="addForm" ng-submit="submitAddForm()">
+			  <div class="form-group">
+				<label for="name">Name:</label>
+				<input ng-model="itemname" type="text" class="form-control" id="itemname" placeholder="Enter Item Name"/>
+			  </div>
+			  <div class="form-group">
+				<label for="Note">Note:</label>
+				<input ng-model="note" type="text" class="form-control" id="note" placeholder="Enter Notes"/>
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+	<br>
+	
+	<h4 class="text-info">Update Record</h4>
+	<div ng-controller="updateController">
+		<div>
+			<form name="updateForm" ng-submit="updateItem()">
+				<div class="form-group">
+				<label for="itemId">ID:</label>
+				<input ng-model="itemId" type="text" class="form-control" id="itemId" placeholder="Enter Item id"/>
+			  </div>
+				<div class="form-group">
+				<label for="name">Name:</label>
+				<input ng-model="itemname" type="text" class="form-control" id="itemname" placeholder="Enter New Item Name"/>
+			  </div>
+			  <div class="form-group">
+				<label for="Note">Note:</label>
+				<input ng-model="note" type="text" class="form-control" id="note" placeholder="Enter New Notes"/>
+			  </div>
+			  <div>{{ postErrMsg }}</div>
+			  <button type="submit" class="btn btn-default">Update</button>
+			</form>
+		</div>
+	</div>
+	<br>
+	
+	<h4 class="text-info">Find by ID</h4>
+	<div ng-controller="getController">
+		<div>
+			<form name="findForm" ng-submit="findItem()">
+				<div class="form-group">
+				<label for="itemId">ID:</label>
+				<input ng-model="itemId" type="text" class="form-control" id="itemId" placeholder="Enter Item ID"/>
+			 </div>
+						{{todo.name + " " + todo.note}}
+						<div>{{ errMsg }}</div>
+			  <button type="submit" class="btn btn-default">Find</button> 
+				<div>{{getErrMsg}}</div>
+			</form>
+		</div>
+	</div>
+	<br>
+	
+	<h4 class="text-info">Delete by ID</h4>
+	<div ng-controller="deleteController">
+		<div>
+			<form name="deleteForm" ng-submit="deleteItem()">
+				<div class="form-group">
+				<label for="itemId">ID:</label>
+				<input ng-model="itemId" type="text" class="form-control" id="itemId" placeholder="Enter Item ID"/>
+			  </div>
+			  <button type="submit" class="btn btn-default">Delete</button> 
+				<div>{{getErrMsg}}</div>
+			</form>
+		</div>
+	</div>
+	<br>
+	
+</div>	
+</div>
+</body>
+</html>
